@@ -86,6 +86,15 @@ const DataSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  userID: {
+    type: String,
+    required:true,
+    unique: false
+  },
+  description: {
+    type: String,
+    require: true
   }
 });
 

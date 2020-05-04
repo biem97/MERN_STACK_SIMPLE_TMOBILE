@@ -7,7 +7,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
-class Dataform extends Component {
+class View extends Component {
   constructor()
   {
     super();
@@ -32,149 +32,134 @@ class Dataform extends Component {
       uso7: "",
       ua: "",
       accessories: "",
-      email: "",
       userID: "",
-      description: "None"
+      description: "None",
+      date: ""
     };
   }
-
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    const { user } = this.props.auth;
-
-    const Data = {
-      name: user.name,
-      voice: this.state.voice,
-      bts: this.state.bts,
-      revenue: this.state.revenue,
-      acc: this.state.acc,
-      voicegoal: this.state.voicegoal,
-      btsgoal: this.state.btsgoal,
-      accgoal: this.state.accgoal,
-      multiplier: this.state.multiplier,
-      pre: this.state.pre,
-      sim3: this.state.sim3,
-      smart7: this.state.smart7,
-      super11: this.state.super11,
-      btsact: this.state.btsact,
-      actrevenue: this.state.actrevenue,
-      mpr: this.state.mpr,
-      uso3: this.state.uso3,
-      uso7: this.state.uso7,
-      ua: this.state.ua,
-      accessories: this.state.accessories,
-      userID: user.id,
-      description: this.state.description
-    };
-
+  componentDidMount() {
     axios
-    .post("/api/data/submit", Data)
-    .then(res => this.props.history.push("/dashboard"))
-    .catch(err => console.log(err));
+    .get("/api/data/view/" + this.props.match.params.id)
+      .then(response => {
+        this.setState({
+            name: response.data.name,
+            voice: response.data.voice,
+            bts: response.data.bts,
+            revenue: response.data.revenue,
+            acc: response.data.acc,
+            voicegoal: response.data.voicegoal,
+            btsgoal: response.data.btsgoal,
+            accgoal: response.data.accgoal,
+            multiplier: response.data.multiplier,
+            pre: response.data.pre,
+            sim3: response.data.sim3,
+            smart7: response.data.smart7,
+            super11: response.data.super11,
+            btsact: response.data.btsact,
+            actrevenue: response.data.actrevenue,
+            mpr: response.data.mpr,
+            uso3: response.data.uso3,
+            uso7: response.data.uso7,
+            ua: response.data.ua,
+            accessories: response.data.accessories,
+            userID: response.data.userID,
+            description: response.data.description,
+            date: response.data.date
+          })   
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
 
 
   render() {
-    const { user } = this.props.auth;
     return (
-      <div style={{ height: "160vh" , width: "150vh"}} className="container valign-wrapper ">
+      <div style={{ height: "160vh" , width: "150vh"}} className="container ">
         <div className="row">
           <form className="col s12" noValidate onSubmit={this.onSubmit}>
             <h3>Sales Focus Promos/Training</h3>         
             <div className="row">
-              <div className="input-field col s6">
+              <div className="col s6">
+              <label for="voice">Voice %</label>
                 <input 
-                onChange={this.onChange}
                 value={this.state.voice}
                 id="voice" 
                 type="number" 
-                className="validate"
-                required="true"
+                disable ="true"
                 />
-                <label for="voice">Voice %</label>
               </div>
-              <div className="input-field col s6">
+              <div className="col s6">
+              <label for="bts">BTS %</label>
                 <input 
-                onChange={this.onChange}
                 value={this.state.bts}                
                 id="bts" 
                 type="number" 
-                className="validate"
                 required="true"
                 />
-                <label for="bts">BTS %</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s6">
-                <input 
-                onChange={this.onChange}
+              <div className="col s6">
+              <label for="revenue">Revenue %</label>  
+                <input
                 value={this.state.revenue} 
                 id="revenue" 
                 type="number" 
                 className="validate"
                 required="true"/>
-                <label for="revenue">Revenue %</label>
               </div>
-              <div className="input-field col s6">
+              <div className=" col s6">
+              <label for="acc">ACC %</label>  
                 <input 
-                onChange={this.onChange}
                 value={this.state.acc}
                 id="acc" 
                 type="number" 
                 className="validate"
                 required="true"/>
-                <label for="acc">ACC %</label>
               </div>
             </div>
 
             <h3>Today's Goals</h3>         
             <div className="row">
-              <div className="input-field col s6">
+              <div className=" col s6">
+              <label for="voicegoal">Voice Goal</label>
                 <input 
-                onChange={this.onChange}
                 value={this.state.voicegoal}
                 id="voicegoal" 
                 type="number" 
                 className="validate"
                 required="true"/>
-                <label for="voicegoal">Voice Goal</label>
               </div>
-              <div className="input-field col s6">
+              <div className=" col s6">
+              <label for="btsgoal">BTS Goal</label>  
                 <input 
-                onChange={this.onChange}
                 value={this.state.btsgoal}
                 id="btsgoal" 
                 type="number" 
                 className="validate"
                 required="true"/>
-                <label for="btsgoal">BTS Goal</label>
+                
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s6">
+              <div className=" col s6">
+              <label for="accgoal">ACC Goal</label>  
                 <input 
-                onChange={this.onChange}
                 value={this.state.accgoal}
                 id="accgoal" 
                 type="number" 
                 className="validate"
                 required="true"/>
-                <label for="accgoal">ACC Goal</label>
               </div>
-              <div className="input-field col s6">
+              <div className=" col s6">
+              <label for="multiplier">Multiplier %</label>
                 <input
-                onChange={this.onChange}
                 value={this.state.multiplier}
                 id="multiplier" 
                 type="number" 
                 className="validate"
                 required="true"/>
-                <label for="multiplier">Multiplier %</label>
               </div>
             </div>
 
@@ -193,28 +178,28 @@ class Dataform extends Component {
                 <tbody>  
                   <tr>Voice Acts
                     <td><input 
-                    onChange={this.onChange}
+                    
                     value={this.state.pre}
                     id="pre" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input 
-                    onChange={this.onChange}
+                    
                     value={this.state.sim3}
                     id="sim3" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input
-                    onChange={this.onChange}
+                    
                     value={this.state.smart7}
                     id="smart7" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input 
-                    onChange={this.onChange}
+                    
                     value={this.state.super11}
                     id="super11" 
                     type="number" 
@@ -223,7 +208,7 @@ class Dataform extends Component {
                   </tr>
                   <tr>BTS ACT
                     <td><input 
-                    onChange={this.onChange}
+                    
                     value={this.state.btsact}
                     id="btsact" 
                     type="number" 
@@ -248,35 +233,31 @@ class Dataform extends Component {
                   <tbody>
                   <tr>Revenue
                     <td><input 
-                    onChange={this.onChange}
+                    
                     value={this.state.actrevenue}
                     id="actrevenue" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input
-                    onChange={this.onChange}
                     value={this.state.mpr} 
                     id="mpr" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input 
-                    onChange={this.onChange}
                     value={this.state.uso3}
                     id="uso3" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input 
-                    onChange={this.onChange}
                     value={this.state.uso7}
                     id="uso7" 
                     type="number" 
                     className="validate"
                     required="true"/></td>
                     <td><input 
-                    onChange={this.onChange}
                     value={this.state.ua}
                     id="ua" 
                     type="number" 
@@ -286,7 +267,7 @@ class Dataform extends Component {
                   </tr>
                   <tr>ACCESSORIES
                     <td><input 
-                    onChange={this.onChange}
+                    
                     value={this.state.accessories}
                     id="accessories" 
                     type="number" 
@@ -303,11 +284,10 @@ class Dataform extends Component {
             <div className="row">
               <div className="col s12">
                 Employee
-                <div className="input-field inline">
+                <div className=" inline">
                   <input 
-                  onChange={this.onChange}
                   disable ="true"
-                  value = {user.name} 
+                  value = {this.state.name} 
                   id="name" 
                   type="text" 
                   className="validate"/>
@@ -317,9 +297,9 @@ class Dataform extends Component {
             <div className="row">
               <div className="col s12">
                 Description
-                <div className="input-field">
+                <div className="">
                   <input 
-                  onChange={this.onChange}
+                  disable ="true"
                   value = {this.state.description} 
                   id="description" 
                   type="text" 
@@ -330,8 +310,8 @@ class Dataform extends Component {
             <label>Date: </label>
             <div>
               <DatePicker
-              
-              selected= {new Date()}
+                  disable ="true"
+                  value = {this.state.date.substring(0,10)} 
               />
             </div>
             <Link
@@ -348,18 +328,6 @@ class Dataform extends Component {
             >
               Back
             </Link>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              type = "submit"
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Submit
-            </button>
           </form>       
         </div>
       </div>
@@ -367,7 +335,7 @@ class Dataform extends Component {
   }
 }
 
-Dataform.propTypes = {
+View.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
@@ -378,4 +346,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Dataform);
+)(View);

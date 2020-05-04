@@ -25,6 +25,8 @@ router.post("/submit", (req, res) => {
         uso7: req.body.uso7,
         ua: req.body.ua,
         accessories: req.body.accessories,
+        userID: req.body.userID,
+        description: req.body.description
         });
     
         
@@ -34,6 +36,23 @@ router.post("/submit", (req, res) => {
     .catch(err => console.log(err));
   });
 
+router.route('/records').get((req, res) => {
+    Data.find()
+      .then(data => res.json(data))
+      .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/view/:id').get((req, res) => {
+  Data.findById(req.params.id)
+    .then(exercise => res.json(exercise))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/records/:id').delete((req, res) => {
+  Data.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Records deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 
 module.exports = router;
