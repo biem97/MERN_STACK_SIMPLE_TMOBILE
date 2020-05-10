@@ -52,7 +52,7 @@ class Charts extends Component {
           options={{
             title:{
               display:true,
-              text:'Items You Have Sold Per Day By Employee',
+              text:'Items You Have Sold Per Day',
               fontSize:20
             },
             legend:{
