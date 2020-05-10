@@ -45,10 +45,22 @@ class Dashboard extends Component {
                 marginTop: "1rem",
                 marginRight: "5rem"
               }}
-              onClick=""
               className="btn btn-large waves-effect waves-light hoverable green accent-3"
             >
               Records
+            </Link>
+            <Link
+              to='/charts'
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem",
+                marginRight: "5rem"
+              }}
+              className="btn btn-large waves-effect waves-light hoverable yellow accent-3"
+            >
+              Charts
             </Link>
             <button
               style={{

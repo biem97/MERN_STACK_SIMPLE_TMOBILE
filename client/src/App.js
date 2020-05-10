@@ -16,7 +16,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Dataform from "./components/form/Dataform";
 import Records from "./components/form/Records";
 import View from "./components/form/View";
-
+import Charts from "./components/form/Charts"
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -53,6 +53,7 @@ class App extends Component {
               <PrivateRoute exact path="/data" component={Dataform} />
               <PrivateRoute exact path="/records" component={Records} />
               <PrivateRoute exact path="/view" component={View} />
+              <PrivateRoute exact path="/charts" component={Charts} />
               <PrivateRoute exact path="/view/:id" component={View} />
             </Switch>
           </div>
