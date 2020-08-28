@@ -75,91 +75,99 @@ class View extends Component {
 
   render() {
     return (
-      <div style={{ height: "160vh" , width: "150vh"}} className="container ">
+      <div className="container ">
         <div className="row">
           <form className="col s12" noValidate onSubmit={this.onSubmit}>
             <h3>Sales Focus Promos/Training</h3>         
             <div className="row">
               <div className="col s6">
-              <label for="voice">Voice %</label>
+              <label htmlFor="voice">Voice %</label>
                 <input 
                 value={this.state.voice}
                 id="voice" 
                 type="number" 
                 disable ="true"
+                readOnly
                 />
               </div>
               <div className="col s6">
-              <label for="bts">BTS %</label>
+              <label htmlFor="bts">BTS %</label>
                 <input 
                 value={this.state.bts}                
                 id="bts" 
                 type="number" 
-                required="true"
+                required={true}
+                readOnly
                 />
               </div>
             </div>
             <div className="row">
               <div className="col s6">
-              <label for="revenue">Revenue %</label>  
+              <label htmlFor="revenue">Revenue %</label>  
                 <input
                 value={this.state.revenue} 
                 id="revenue" 
                 type="number" 
                 className="validate"
-                required="true"/>
+                readOnly
+                required={true}/>
               </div>
               <div className=" col s6">
-              <label for="acc">ACC %</label>  
+              <label htmlFor="acc">ACC %</label>  
                 <input 
                 value={this.state.acc}
                 id="acc" 
                 type="number" 
                 className="validate"
-                required="true"/>
+                readOnly
+                required={true}/>
               </div>
             </div>
 
             <h3>Today's Goals</h3>         
             <div className="row">
               <div className=" col s6">
-              <label for="voicegoal">Voice Goal</label>
+              <label htmlFor="voicegoal">Voice Goal</label>
                 <input 
                 value={this.state.voicegoal}
                 id="voicegoal" 
                 type="number" 
+                readOnly
                 className="validate"
-                required="true"/>
+                required={true}/>
               </div>
               <div className=" col s6">
-              <label for="btsgoal">BTS Goal</label>  
+              <label htmlFor="btsgoal">BTS Goal</label>  
                 <input 
                 value={this.state.btsgoal}
                 id="btsgoal" 
                 type="number" 
                 className="validate"
-                required="true"/>
+                readOnly
+                required={true}/>
                 
               </div>
             </div>
             <div className="row">
               <div className=" col s6">
-              <label for="accgoal">ACC Goal</label>  
+              <label htmlFor="accgoal">ACC Goal</label>  
                 <input 
                 value={this.state.accgoal}
                 id="accgoal" 
                 type="number" 
                 className="validate"
-                required="true"/>
+                readOnly
+                required={true}/>
               </div>
               <div className=" col s6">
-              <label for="multiplier">Multiplier %</label>
+              <label htmlFor="multiplier">Multiplier %</label>
                 <input
                 value={this.state.multiplier}
                 id="multiplier" 
                 type="number" 
                 className="validate"
-                required="true"/>
+                readOnly
+                required={true}/>
               </div>
             </div>
 
@@ -176,44 +184,51 @@ class View extends Component {
                   </tr>
                 </thead>
                 <tbody>  
-                  <tr>Voice Acts
+                  <tr>
+                    <td>Voice Acts</td>
                     <td><input 
                     
                     value={this.state.pre}
                     id="pre" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                     <td><input 
                     
                     value={this.state.sim3}
                     id="sim3" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                     <td><input
                     
                     value={this.state.smart7}
                     id="smart7" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                     <td><input 
                     
                     value={this.state.super11}
                     id="super11" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                   </tr>
-                  <tr>BTS ACT
+                  <tr>
+                    <td>BTS ACT</td>
                     <td><input 
                     
                     value={this.state.btsact}
                     id="btsact" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                   </tr>
                   </tbody>
                 </table>
@@ -231,48 +246,55 @@ class View extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>Revenue
+                  <tr>
+                    <td>Revenue</td>
                     <td><input 
-                    
+                    readOnly
                     value={this.state.actrevenue}
                     id="actrevenue" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input
                     value={this.state.mpr} 
                     id="mpr" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                     <td><input 
                     value={this.state.uso3}
                     id="uso3" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                     <td><input 
                     value={this.state.uso7}
                     id="uso7" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                     <td><input 
                     value={this.state.ua}
                     id="ua" 
                     type="number" 
                     className="validate"
-                    required="true"
+                    readOnly
+                    required={true}
                     /></td>
                   </tr>
-                  <tr>ACCESSORIES
+                  <tr>
+                    <td>ACCESSORIES</td>
                     <td><input 
                     
                     value={this.state.accessories}
                     id="accessories" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    readOnly
+                    required={true}/></td>
                   </tr>
                   </tbody>
                 </table>
@@ -290,6 +312,7 @@ class View extends Component {
                   value = {this.state.name} 
                   id="name" 
                   type="text" 
+                  readOnly
                   className="validate"/>
                 </div>
               </div>
@@ -303,6 +326,7 @@ class View extends Component {
                   value = {this.state.description} 
                   id="description" 
                   type="text" 
+                  readOnly
                   className="text"/>
                 </div>
               </div>

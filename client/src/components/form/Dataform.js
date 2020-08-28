@@ -81,7 +81,7 @@ class Dataform extends Component {
   render() {
     const { user } = this.props.auth;
     return (
-      <div style={{ height: "160vh" , width: "150vh"}} className="container valign-wrapper ">
+      <div className="container valign-wrapper ">
         <div className="row">
           <form className="col s12" noValidate onSubmit={this.onSubmit}>
             <h3>Sales Focus Promos/Training</h3>         
@@ -93,9 +93,9 @@ class Dataform extends Component {
                 id="voice" 
                 type="number" 
                 className="validate"
-                required="true"
+                required={true}
                 />
-                <label for="voice">Voice %</label>
+                <label htmlFor="voice">Voice %</label>
               </div>
               <div className="input-field col s6">
                 <input 
@@ -104,9 +104,9 @@ class Dataform extends Component {
                 id="bts" 
                 type="number" 
                 className="validate"
-                required="true"
+                required={true}
                 />
-                <label for="bts">BTS %</label>
+                <label htmlFor="bts">BTS %</label>
               </div>
             </div>
             <div className="row">
@@ -117,8 +117,8 @@ class Dataform extends Component {
                 id="revenue" 
                 type="number" 
                 className="validate"
-                required="true"/>
-                <label for="revenue">Revenue %</label>
+                required={true}/>
+                <label htmlFor="revenue">Revenue %</label>
               </div>
               <div className="input-field col s6">
                 <input 
@@ -127,8 +127,8 @@ class Dataform extends Component {
                 id="acc" 
                 type="number" 
                 className="validate"
-                required="true"/>
-                <label for="acc">ACC %</label>
+                required={true}/>
+                <label htmlFor="acc">ACC %</label>
               </div>
             </div>
 
@@ -141,8 +141,8 @@ class Dataform extends Component {
                 id="voicegoal" 
                 type="number" 
                 className="validate"
-                required="true"/>
-                <label for="voicegoal">Voice Goal</label>
+                required={true}/>
+                <label htmlFor="voicegoal">Voice Goal</label>
               </div>
               <div className="input-field col s6">
                 <input 
@@ -151,8 +151,8 @@ class Dataform extends Component {
                 id="btsgoal" 
                 type="number" 
                 className="validate"
-                required="true"/>
-                <label for="btsgoal">BTS Goal</label>
+                required={true}/>
+                <label htmlFor="btsgoal">BTS Goal</label>
               </div>
             </div>
             <div className="row">
@@ -163,8 +163,8 @@ class Dataform extends Component {
                 id="accgoal" 
                 type="number" 
                 className="validate"
-                required="true"/>
-                <label for="accgoal">ACC Goal</label>
+                required={true}/>
+                <label htmlFor="accgoal">ACC Goal</label>
               </div>
               <div className="input-field col s6">
                 <input
@@ -173,8 +173,8 @@ class Dataform extends Component {
                 id="multiplier" 
                 type="number" 
                 className="validate"
-                required="true"/>
-                <label for="multiplier">Multiplier %</label>
+                required={true}/>
+                <label htmlFor="multiplier">Multiplier %</label>
               </div>
             </div>
 
@@ -191,44 +191,47 @@ class Dataform extends Component {
                   </tr>
                 </thead>
                 <tbody>  
-                  <tr>Voice Acts
+                  <tr>
+                    <td>VOICE ACT</td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.pre}
                     id="pre" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.sim3}
                     id="sim3" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input
                     onChange={this.onChange}
                     value={this.state.smart7}
                     id="smart7" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
+                    
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.super11}
                     id="super11" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>   
                   </tr>
-                  <tr>BTS ACT
+                  <tr>
+                    <td>BTS ACT</td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.btsact}
                     id="btsact" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                   </tr>
                   </tbody>
                 </table>
@@ -246,52 +249,54 @@ class Dataform extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>Revenue
+                  <tr>
+                    <td>Revenue</td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.actrevenue}
                     id="actrevenue" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input
                     onChange={this.onChange}
                     value={this.state.mpr} 
                     id="mpr" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.uso3}
                     id="uso3" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.uso7}
                     id="uso7" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.ua}
                     id="ua" 
                     type="number" 
                     className="validate"
-                    required="true"
+                    required={true}
                     /></td>
                   </tr>
-                  <tr>ACCESSORIES
+                  <tr>
+                    <td>ACCESSORIES</td>
                     <td><input 
                     onChange={this.onChange}
                     value={this.state.accessories}
                     id="accessories" 
                     type="number" 
                     className="validate"
-                    required="true"/></td>
+                    required={true}/></td>
                   </tr>
                   </tbody>
                 </table>
